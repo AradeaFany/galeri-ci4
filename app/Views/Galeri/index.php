@@ -21,7 +21,7 @@
             <div class="d-flex justify-content-between mb-3">
                 <h5>Daftar Galeri</h5>
 
-                <a href="#" class="btn btn-success">
+                <a href="/galeri/create" class="btn btn-success">
                     + Tambah Data
                 </a>
             </div>
@@ -60,7 +60,9 @@
                         <td><?= $g['deskripsi'] ?></td>
 
                         <td>
-                            <?= $g['gambar'] ?>
+                            <img src="<?= base_url('assets/img/upload/'.$g['gambar']) ?>"
+     width="100"
+     class="img-thumbnail">
                         </td>
                     </tr>
 
