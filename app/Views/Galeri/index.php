@@ -1,37 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Galeri Foto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-<h1>Sistem Galeri Foto</h1>
+<div class="container mt-5">
 
-<a href="#">Tambah Data</a>
+    <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">📸 Sistem Galeri Foto</h3>
+        </div>
 
-<hr>
+        <div class="card-body">
 
-<table border="1" cellpadding="10">
-    <tr>
-        <th>No</th>
-        <th>Judul</th>
-        <th>Deskripsi</th>
-        <th>Gambar</th>
-    </tr>
+            <div class="d-flex justify-content-between mb-3">
+                <h5>Daftar Galeri</h5>
 
-    <?php $no=1; ?>
-    <?php foreach($galeri as $g): ?>
+                <a href="#" class="btn btn-success">
+                    + Tambah Data
+                </a>
+            </div>
 
-    <tr>
-        <td><?= $no++ ?></td>
-        <td><?= $g['judul'] ?></td>
-        <td><?= $g['deskripsi'] ?></td>
-        <td><?= $g['gambar'] ?></td>
-    </tr>
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th width="70">No</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th width="150">Gambar</th>
+                    </tr>
+                </thead>
 
-    <?php endforeach; ?>
+                <tbody>
 
-</table>
+                <?php if(empty($galeri)): ?>
+
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">
+                            Belum ada data galeri
+                        </td>
+                    </tr>
+
+                <?php else: ?>
+
+                    <?php $no = 1; ?>
+
+                    <?php foreach($galeri as $g): ?>
+
+                    <tr>
+                        <td><?= $no++ ?></td>
+
+                        <td><?= $g['judul'] ?></td>
+
+                        <td><?= $g['deskripsi'] ?></td>
+
+                        <td>
+                            <?= $g['gambar'] ?>
+                        </td>
+                    </tr>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
